@@ -1,17 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from './components/App'
+import "antd/dist/antd.css"
+import {
+  ApolloClient,
+  ApolloProvider,
+  from,
+  HttpLink,
+  InMemoryCache
+} from "@apollo/client";
+import { onError } from "@apollo/client/link/error"
+
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    graphQLErrors.map(({ message, path }) => {
+      alert(`Graphql Error ${message}`)
+    })
+  }
+})
+const link = from([
+  errorLink,
+  new HttpLink({
+    uri:
+      "https://112qaej5y9.execute-api.ap-southeast-2.amazonaws.com/dev/graphql"
+  })
+])
+
+const client = new ApolloClient({
+  link: link,
+  cache: new InMemoryCache()
+})
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  </ApolloProvider>,
+  document.querySelector("#root")
+)
