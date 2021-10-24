@@ -7,7 +7,7 @@ interface MovieListParam {
   movies: Movie[]
 }
 
-const MovieList = (param: MovieListParam) => (
+const MovieList = ({movies}: MovieListParam) => (
   <List
     grid={{
       gutter: 16,
@@ -18,7 +18,7 @@ const MovieList = (param: MovieListParam) => (
       xl: 5,
       xxl: 6
     }}
-    dataSource={param.movies}
+    dataSource={movies}
     renderItem={(item) => (
       <List.Item>
         <MovieCard movie={item} />

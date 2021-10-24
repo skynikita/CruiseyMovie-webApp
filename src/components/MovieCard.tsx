@@ -10,29 +10,29 @@ interface MovieParam {
   movie: Movie
 }
 
-const MovieCard = ( param : MovieParam) => {
-  return param.movie.poster ? (
+const MovieCard = ({ movie } : MovieParam) => {
+  return movie.poster ? (
     <Card
       hoverable
       style={{ margin: 20, width: 280 }}
-      cover={<img src={param.movie.poster.small} alt={param.movie.title} />}
+      cover={<img src={movie.poster.small} alt={movie.title} />}
     >
       <Meta
         style={{ fontSize: 10 }}
-        title={param.movie.title}
-        description={param.movie.releaseDate ? param.movie.releaseDate : "unknown"}
+        title={movie.title}
+        description={movie.releaseDate ? movie.releaseDate : "unknown"}
       />
     </Card>
   ) : (
     <Card
       hoverable
       style={{ margin: 20, width: 280 }}
-      cover={<img src={Noimage} alt={param.movie.title} />}
+      cover={<img src={Noimage} alt={movie.title} />}
     >
       <Meta
         style={{ fontSize: 10 }}
-        title={param.movie.title}
-        description={param.movie.releaseDate ? param.movie.releaseDate : "unknown"}
+        title={movie.title}
+        description={movie.releaseDate ? movie.releaseDate : "unknown"}
       />
     </Card>
   )
