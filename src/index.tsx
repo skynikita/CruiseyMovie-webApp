@@ -1,6 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from './components/App'
+import React from "react"
+import ReactDOM from "react-dom"
+import App from "./components/App"
 import "antd/dist/antd.css"
 import {
   ApolloClient,
@@ -8,7 +8,7 @@ import {
   from,
   HttpLink,
   InMemoryCache
-} from "@apollo/client";
+} from "@apollo/client"
 import { onError } from "@apollo/client/link/error"
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {

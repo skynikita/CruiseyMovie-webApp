@@ -1,16 +1,5 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-
-interface SearchMovies {
-  id: number;
-  title: string;
-  releaseDate:Date;
-  poster: {
-    small: string;
-  }
-}
-
-
+import {  gql } from '@apollo/client';
 
 export const GET_MOVIES_QUERY = gql`
   query($movieName: String!) {

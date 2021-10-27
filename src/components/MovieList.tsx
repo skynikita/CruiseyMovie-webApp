@@ -1,11 +1,8 @@
 import React from "react"
 import MovieCard from "./MovieCard"
 import { List } from "antd"
-import {Movie} from "./MoviePage";
+import {MovieListParam} from "../models/movies";
 
-interface MovieListParam {
-  movies: Movie[]
-}
 
 const MovieList = ({movies}: MovieListParam) => (
   <List
