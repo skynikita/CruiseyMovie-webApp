@@ -1,10 +1,9 @@
 import React from "react"
 import MovieCard from "./MovieCard"
 import { List } from "antd"
-import {MovieListParam} from "../models/movies";
+import { MovieListParam } from "../models/movies"
 
-
-const MovieList = ({movies}: MovieListParam) => (
+const MovieList = ({ movies }: MovieListParam) => (
   <List
     grid={{
       gutter: 16,

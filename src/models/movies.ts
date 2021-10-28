@@ -1,6 +1,3 @@
-export interface SearchMovies {
-  searchMovies: Array<Movie>
-}
 
 export interface Movie {
   id: number
@@ -9,6 +6,10 @@ export interface Movie {
   poster: {
     small: string
   }
+}
+
+export interface SearchMovies {
+  searchMovies: Array<Movie>
 }
 
 export interface MovieAndTV extends Movie {

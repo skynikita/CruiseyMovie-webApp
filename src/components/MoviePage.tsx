@@ -17,12 +17,12 @@ const MoviePage = () => {
   return (
     <>
       <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center"
-        }}
-      ></div>
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center"
+  }}
+  />
 
       {data && (
         <MovieList
